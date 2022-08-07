@@ -4,18 +4,18 @@
  */
 export default function drawTemperatureNode (temperatureObj) {
   const temperatureContainer = document.createElement('div')
-  temperatureContainer.classList.add('temperature')
+  temperatureContainer.classList.add('temperature-container')
 
-  const temperature = document.createElement('div')
-  temperature.classList.add('temperature')
-  temperature.textContent = temperatureObj.temperature
+  const temp = document.createElement('div')
+  temp.classList.add('temp')
+  temp.textContent = temperatureObj.temp
 
   const feelsLike = document.createElement('div')
   feelsLike.classList.add('feelsLike')
   feelsLike.textContent = temperatureObj.feelsLike
 
-  temperatureObj.appendChild(temperature)
-  temperatureObj.appendChild(feelsLike)
+  temperatureContainer.appendChild(temp)
+  temperatureContainer.appendChild(feelsLike)
 
-  return temperatureObj
+  return temperatureContainer
 }

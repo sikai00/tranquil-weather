@@ -1,3 +1,7 @@
 body {
   background-color: grey;
 }
+
+body > * {
+  margin-bottom: 10px;
+}

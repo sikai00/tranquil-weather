@@ -10,40 +10,45 @@ export {
   getHumidity,
   getPressure,
   getWind,
-  getCloudiness
+  getCloudiness,
+  getTime,
+  getLocationName
 }
 
 /**
- * Returns current weather information as an Object containing 'main' and
- * 'description', where 'main' is the key for the overview of the current
- * weather, and 'description' is the key for additional information of the
- * current weather.
+ * Returns current weather information as an Object containing 'main',
+ * 'description', and 'id', where 'main' is the key for the overview of the
+ * current weather, 'description' is the key for additional information of the
+ * current weather, 'id' is the key for identifier of the current weather as
+ * classified by OpenWeather.
  * @param {JSON} weatherJson - JSON from OpenWeather.
  * @returns {Object} an Object with current weather information.
  */
 function getWeather (weatherJson) {
-  const weather = weatherJson.weather[0]
+  const weather = weatherJson.weather[0] // First result takes precedence
   const main = weather.main
   const description = weather.description
+  const id = weather.id
   return {
     main,
-    description
+    description,
+    id
   }
 }
 
 /**
- * Returns current temperature information as an Object containing 'temperature'
- * and 'feelsLike', where 'temperature' is the key for the current temperature,
+ * Returns current temperature information as an Object containing 'temp' and
+ * 'feelsLike', where 'temp' is the key for the current temperature,
  * and 'feelsLike' is the key for the temperature it feels like.
  * @param {JSON} weatherJson - JSON from OpenWeather.
  * @returns {Object} an Object with current temperature information.
  */
 function getTemperature (weatherJson) {
   const main = weatherJson.main
-  const temperature = main.temperature
+  const temp = main.temp
   const feelsLike = main.feels_like
   return {
-    temperature,
+    temp,
     feelsLike
   }
 }
@@ -100,11 +105,47 @@ function getWind (weatherJson) {
  * @returns {Object} an Object with current cloudiness information.
  */
 function getCloudiness (weatherJson) {
-  const cloud = weatherJson.cloud
+  const cloud = weatherJson.clouds
   const cloudiness = cloud.all
   return {
     cloudiness
   }
 }
 
+/**
+ * Returns the relevant time information of the location queried as an Object
+ * containing 'sunrise', 'sunset', 'timezone', 'dt', where 'sunrise' and
+ * 'sunset' is the respective key for sunrise/sunset time in Unix time, 'dt' is
+ * the time of the calculation in Unix time and 'timezone' is the difference
+ * from UTC in seconds.
+ * @param {JSON} weatherJson - JSON from OpenWeather.
+ * @returns {Object} an Object with sunrise/sunset time.
+ */
+function getTime (weatherJson) {
+  const sys = weatherJson.sys
+  const sunrise = sys.sunrise
+  const sunset = sys.sunset
+  const dt = weatherJson.dt
+
+  const timezone = weatherJson.timezone
+  return {
+    sunrise,
+    sunset,
+    dt,
+    timezone
+  }
+}
+
+/**
+ * Return the name of the location as formatted by OpenWeather as an Object
+ * containing 'name', where 'name' is the name of the location.
+ * @param {JSON} weatherJson
+ * @returns {Object} an Object with the name of the location queried.
+ */
+function getLocationName (weatherJson) {
+  const name = weatherJson.name
+  return {
+    name
+  }
+}
 // TODO: Rain, snow, visibility
