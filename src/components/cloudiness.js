@@ -7,7 +7,7 @@ export default function drawCloudinessNode (cloudinessObj) {
 
   const cloudiness = document.createElement('div')
   cloudiness.classList.add('cloudiness')
-  cloudiness.textContent = cloudinessObj.cloudiness
+  cloudiness.textContent = `${cloudinessObj.cloudiness}%`
 
   cloudinessContainer.appendChild(cloudiness)
 

@@ -7,7 +7,7 @@ export default function drawHumidityNode (humidityObj) {
 
   const humidity = document.createElement('div')
   humidity.classList.add('humidity')
-  humidity.textContent = humidityObj.humidity
+  humidity.textContent = `${humidityObj.humidity}%`
 
   humidityContainer.appendChild(humidity)
 

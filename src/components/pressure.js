@@ -7,7 +7,7 @@ export default function drawPressureNode (pressureObj) {
 
   const pressure = document.createElement('div')
   pressure.classList.add('pressure')
-  pressure.textContent = pressureObj.pressure
+  pressure.textContent = `${pressureObj.pressure} hPa`
 
   pressureContainer.appendChild(pressure)
 

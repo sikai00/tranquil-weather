@@ -7,11 +7,11 @@ export default function drawWindNode (windObj) {
 
   const speed = document.createElement('div')
   speed.classList.add('speed')
-  speed.textContent = windObj.speed
+  speed.textContent = `${windObj.speed} m/s`
 
   const deg = document.createElement('div')
   deg.classList.add('deg')
-  deg.textContent = windObj.deg
+  deg.textContent = `${windObj.deg}°` // Improvement: Draw a compass instead
 
   windContainer.appendChild(speed)
   windContainer.appendChild(deg)
