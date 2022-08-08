@@ -16,7 +16,7 @@ import drawWindNode from './components/wind'
 import drawCloudinessNode from './components/cloudiness'
 import './style.css'
 
-import Background from './components/background'
+import getBackground from './components/background'
 import Midnight from './static/background-images/0000.jpg'
 import Dawn from './static/background-images/0600.jpg'
 import Morning from './static/background-images/0700.jpg'
@@ -28,7 +28,7 @@ import Night from './static/background-images/2000.jpg'
 
 const API_KEY = '08d632f209c72452f8b88dcb7c9aa7f3'
 
-const location = 'Seoul'
+const location = 'New Zealand'
 
 const weatherPromise = getWeatherPromise(API_KEY, location)
 
@@ -59,10 +59,8 @@ weatherPromise
       { '1900': Sunset },
       { '2000': Night }
     ]
-    const photo = new Image()
-    photo.src = new Background(timeObj, imageObjArr).getBackground()
-    photo.style.width = '100%'
-    document.body.appendChild(photo)
+    document.body.style.backgroundImage =
+      `url(${getBackground(timeObj, imageObjArr)})`
   })
 
 weatherPromise.then(r => console.log(r))
