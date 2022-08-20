@@ -10,12 +10,7 @@ export default function drawTemperatureNode (temperatureObj) {
   temp.classList.add('temp')
   temp.textContent = `${Math.round(temperatureObj.temp)}°C`
 
-  const feelsLike = document.createElement('div')
-  feelsLike.classList.add('feelsLike')
-  feelsLike.textContent = `${Math.round(temperatureObj.feelsLike)}°C`
-
   temperatureContainer.appendChild(temp)
-  temperatureContainer.appendChild(feelsLike)
 
   return temperatureContainer
 }

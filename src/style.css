@@ -1,7 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap');
+
 body {
-  background-color: grey;
+  background-size: cover;
+  background-position: 0 30%;
+  background-repeat: no-repeat;
 }
 
 body > * {
+  color: white;
+  font-family: 'Nunito Sans', sans-serif;
   margin-bottom: 10px;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description {
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+.temperature-container {
+  font-weight: bold;
+  background-color: transparent;
+  border: 0;
+}
+
+.feelsLike {
+  display: flex;
+  flex-direction: column;
+}
+
+.feelsLike-label {
+  text-align: left;
+  font-size: 1rem;
+  color: rgb(249, 249, 249);
+}
+
+.app {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.main {
+  font-size: 3.5rem;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+.side {
+  font-size: 1.5rem;
+  margin-right: 100px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.location-form {
+  position: relative;
+  bottom: 20px;
+}
+
+.location-form input[type='text']{
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: white;
+  outline: 0;
+  border: 0;
+  font-size: inherit;
+  width: 60%;
+}
+
+.location-form button[type='button'] {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
 }

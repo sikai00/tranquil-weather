@@ -17,17 +17,17 @@ export default function drawWeatherNode (weatherObj, timeObj) {
   const icon = new Image()
   icon.src = selectWeatherIcon(weatherObj.id, timeObj)
 
-  const main = document.createElement('div')
-  main.classList.add('main')
-  main.textContent = weatherObj.main
+  // const main = document.createElement('div')
+  // main.classList.add('main')
+  // main.textContent = weatherObj.main
 
   const description = document.createElement('div')
   description.classList.add('description')
   description.textContent = weatherObj.description
 
-  weatherContainer.appendChild(icon)
-  weatherContainer.appendChild(main)
+  // weatherContainer.appendChild(main)
   weatherContainer.appendChild(description)
+  weatherContainer.appendChild(icon)
 
   return weatherContainer
 }

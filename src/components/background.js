@@ -1,3 +1,6 @@
+/**
+ * This module returns time-based background based on the provided arguments.
+ */
 import { utcToZonedTime } from 'date-fns-tz'
 const createTree = require('functional-red-black-tree')
 
