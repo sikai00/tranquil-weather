@@ -37,9 +37,6 @@ function loadPage (location) {
   const main = document.querySelector('.main')
   const side = document.querySelector('.side')
 
-  main.textContent = ''
-  side.textContent = ''
-
   weatherPromise
     .then(r => {
       const timeObj = getTime(r)
@@ -49,6 +46,9 @@ function loadPage (location) {
       const pressureObj = getPressure(r)
       const windObj = getWind(r)
       const cloudinessObj = getCloudiness(r)
+
+      main.textContent = ''
+      side.textContent = ''
 
       main.appendChild(drawTemperatureNode(temperatureObj))
       main.appendChild(drawWeatherNode(weatherObj, timeObj))
