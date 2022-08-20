@@ -29,7 +29,9 @@ import drawLocationForm from './components/form'
 
 const API_KEY = '08d632f209c72452f8b88dcb7c9aa7f3'
 
-const location = 'Singapore'
+const location = localStorage.getItem('location')
+  ? localStorage.getItem('location')
+  : 'Singapore'
 
 function loadPage (location) {
   const weatherPromise = getWeatherPromise(API_KEY, location)
@@ -54,6 +56,7 @@ function loadPage (location) {
       main.appendChild(drawWeatherNode(weatherObj, timeObj))
       const locationForm = drawLocationForm(loadPage)
       locationForm.querySelector("input[type='text']").value = location
+      localStorage.setItem('location', location)
       main.appendChild(locationForm)
 
       side.appendChild(drawHumidityNode(humidityObj))
