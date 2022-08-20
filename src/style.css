@@ -29,17 +29,6 @@ body > * {
   border: 0;
 }
 
-.feelsLike {
-  display: flex;
-  flex-direction: column;
-}
-
-.feelsLike-label {
-  text-align: left;
-  font-size: 1rem;
-  color: rgb(249, 249, 249);
-}
-
 .app {
   display: flex;
   justify-content: space-between;
