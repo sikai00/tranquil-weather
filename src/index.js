@@ -31,42 +31,49 @@ const API_KEY = '08d632f209c72452f8b88dcb7c9aa7f3'
 
 const location = 'Singapore'
 
-const weatherPromise = getWeatherPromise(API_KEY, location)
+function loadPage (location) {
+  const weatherPromise = getWeatherPromise(API_KEY, location)
 
-weatherPromise
-  .then(r => {
-    const timeObj = getTime(r)
-    const weatherObj = getWeather(r)
-    const temperatureObj = getTemperature(r)
-    const humidityObj = getHumidity(r)
-    const pressureObj = getPressure(r)
-    const windObj = getWind(r)
-    const cloudinessObj = getCloudiness(r)
+  const main = document.querySelector('.main')
+  const side = document.querySelector('.side')
 
-    const main = document.querySelector('.main')
-    const side = document.querySelector('.side')
+  main.textContent = ''
+  side.textContent = ''
 
-    main.appendChild(drawTemperatureNode(temperatureObj))
-    main.appendChild(drawWeatherNode(weatherObj, timeObj))
-    const locationForm = drawLocationForm()
-    locationForm.querySelector("input[type='text']").value = location
-    main.appendChild(locationForm)
+  weatherPromise
+    .then(r => {
+      const timeObj = getTime(r)
+      const weatherObj = getWeather(r)
+      const temperatureObj = getTemperature(r)
+      const humidityObj = getHumidity(r)
+      const pressureObj = getPressure(r)
+      const windObj = getWind(r)
+      const cloudinessObj = getCloudiness(r)
 
-    side.appendChild(drawHumidityNode(humidityObj))
-    side.appendChild(drawPressureNode(pressureObj))
-    side.appendChild(drawWindNode(windObj))
-    side.appendChild(drawCloudinessNode(cloudinessObj))
+      main.appendChild(drawTemperatureNode(temperatureObj))
+      main.appendChild(drawWeatherNode(weatherObj, timeObj))
+      const locationForm = drawLocationForm(loadPage)
+      locationForm.querySelector("input[type='text']").value = location
+      main.appendChild(locationForm)
 
-    const imageObjArr = [
-      { '0000': Midnight },
-      { '0600': Dawn },
-      { '0800': Sunrise },
-      { '0700': Morning },
-      { '0900': Day },
-      { '1800': Dusk },
-      { '1900': Sunset },
-      { '2000': Night }
-    ]
-    document.body.style.backgroundImage =
-      `url(${getBackground(timeObj, imageObjArr)})`
-  })
+      side.appendChild(drawHumidityNode(humidityObj))
+      side.appendChild(drawPressureNode(pressureObj))
+      side.appendChild(drawWindNode(windObj))
+      side.appendChild(drawCloudinessNode(cloudinessObj))
+
+      const imageObjArr = [
+        { '0000': Midnight },
+        { '0600': Dawn },
+        { '0800': Sunrise },
+        { '0700': Morning },
+        { '0900': Day },
+        { '1800': Dusk },
+        { '1900': Sunset },
+        { '2000': Night }
+      ]
+      document.body.style.backgroundImage =
+        `url(${getBackground(timeObj, imageObjArr)})`
+    })
+}
+
+loadPage(location)

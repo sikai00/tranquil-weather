@@ -3,7 +3,7 @@
  */
 import Magnify from '../static/magnify.png'
 
-export default function drawLocationForm () {
+export default function drawLocationForm (updateFunction) {
   const form = document.createElement('form')
   form.classList.add('location-form')
 
@@ -16,6 +16,11 @@ export default function drawLocationForm () {
   const submitButtonImg = new Image()
   submitButtonImg.src = Magnify
   submitButton.appendChild(submitButtonImg)
+
+  submitButton.addEventListener('click', () => {
+    console.log(locationInput.value)
+    updateFunction(locationInput.value)
+  })
 
   form.appendChild(locationInput)
   form.appendChild(submitButton)
