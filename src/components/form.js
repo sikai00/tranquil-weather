@@ -17,9 +17,16 @@ export default function drawLocationForm (updateFunction) {
   submitButtonImg.src = Magnify
   submitButton.appendChild(submitButtonImg)
 
+  form.addEventListener('submit', e => e.preventDefault())
+
   submitButton.addEventListener('click', () => {
-    console.log(locationInput.value)
     updateFunction(locationInput.value)
+  })
+
+  locationInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      updateFunction(locationInput.value)
+    }
   })
 
   form.appendChild(locationInput)

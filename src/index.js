@@ -76,6 +76,8 @@ function loadPage (location) {
       ]
       document.body.style.backgroundImage =
         `url(${getBackground(timeObj, imageObjArr)})`
+    }).catch(e => {
+      document.querySelector('.location-form > input[type="text"]').value = 'Invalid location!'
     })
 }
 

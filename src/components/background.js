@@ -19,6 +19,5 @@ export default function getBackground (timeObj, imagesObjArr) {
 
   const currentHour = utcToZonedTime(
     Date.now() + timeObj.timezone * 1000, 'UTC').getHours() * 100
-  console.log(currentHour)
   return tree.le(currentHour).value
 }
