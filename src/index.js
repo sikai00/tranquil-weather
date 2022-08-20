@@ -27,6 +27,8 @@ import Sunset from './static/background-images/1900.jpg'
 import Night from './static/background-images/2000.jpg'
 import drawLocationForm from './components/form'
 
+import drawLoadingFeedback from './components/loadingfeedback'
+
 const API_KEY = '08d632f209c72452f8b88dcb7c9aa7f3'
 
 const location = localStorage.getItem('location')
@@ -38,6 +40,8 @@ function loadPage (location) {
 
   const main = document.querySelector('.main')
   const side = document.querySelector('.side')
+
+  const loadingFeedback = document.body.appendChild(drawLoadingFeedback())
 
   weatherPromise
     .then(r => {
@@ -76,9 +80,11 @@ function loadPage (location) {
       ]
       document.body.style.backgroundImage =
         `url(${getBackground(timeObj, imageObjArr)})`
-    }).catch(e => {
+    })
+    .catch(e => {
       document.querySelector('.location-form > input[type="text"]').value = 'Invalid location!'
     })
+    .finally(() => loadingFeedback.remove())
 }
 
 loadPage(location)
