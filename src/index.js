@@ -41,7 +41,8 @@ function loadPage (location) {
   const main = document.querySelector('.main')
   const side = document.querySelector('.side')
 
-  const loadingFeedback = document.body.appendChild(drawLoadingFeedback())
+  const loadingFeedback = drawLoadingFeedback()
+  document.body.appendChild(loadingFeedback)
 
   weatherPromise
     .then(r => {
