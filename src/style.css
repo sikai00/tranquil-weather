@@ -19,7 +19,6 @@ body > * {
 }
 
 .description {
-  padding-bottom: 20px;
   padding-right: 10px;
 }
 
@@ -57,11 +56,6 @@ body > * {
 .cloudiness-container {
   display: flex;
   align-items: center;
-}
-
-.location-form {
-  position: relative;
-  bottom: 20px;
 }
 
 .location-form input[type='text']{
