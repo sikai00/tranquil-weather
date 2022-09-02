@@ -10,7 +10,7 @@
 
 >Beautiful, minimal and aesthetically pleasant website with up-to-date weather information
 
-This is a website I built in my attempt to build a clean looking website, as well as to utilize asynchronous functions within a website.
+This is a website I built in my attempt to build a clean looking website, as well as to utilize asynchronous functions within a website. You can visit it [here](https://sikai00.github.io/tranquil-weather/).
 
 ## Key features
 ### Background changes with time
