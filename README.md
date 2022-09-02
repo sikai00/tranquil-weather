@@ -17,9 +17,9 @@ This is a website I built in my attempt to build a clean looking website, as wel
 Depending on the location, the beautiful scenery changes shades to match the local time in that location.
 
 <div>
-<img width="300" alt="Preview of website during daytime" src="https://user-images.githubusercontent.com/63795894/188159115-98056686-32af-4b15-8e1a-eb7b88d081e8.png">
-<img width="300" alt="Preview of website during sunset" src="https://user-images.githubusercontent.com/63795894/188159086-9871dea9-2a7e-426d-beb0-549f70c55d62.png">
-<img width="300" alt="Preview of website during nighttime" src="https://user-images.githubusercontent.com/63795894/188159099-6514304a-902c-4dc5-8558-f9ab3e42dc01.png">
+<img width="200" alt="Preview of website during daytime" src="https://user-images.githubusercontent.com/63795894/188159115-98056686-32af-4b15-8e1a-eb7b88d081e8.png">
+<img width="200" alt="Preview of website during sunset" src="https://user-images.githubusercontent.com/63795894/188159086-9871dea9-2a7e-426d-beb0-549f70c55d62.png">
+<img width="200" alt="Preview of website during nighttime" src="https://user-images.githubusercontent.com/63795894/188159099-6514304a-902c-4dc5-8558-f9ab3e42dc01.png">
 </div>
 
 ### Stores the last used location for you
